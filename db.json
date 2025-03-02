@@ -1,0 +1,279 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "name": "HR User",
+      "email": "hr@example.com",
+      "password": "hr123",
+      "role": "HR"
+    },
+    {
+      "id": "3",
+      "name": "Supervisor User",
+      "email": "supervisor@example.com",
+      "password": "supervisor123",
+      "role": "Supervisor"
+    },
+    {
+      "name": "Manager User 4",
+      "email": "manager@example.com",
+      "password": "manager123",
+      "role": "Manager",
+      "id": "4"
+    },
+    {
+      "id": "763e",
+      "name": "JD",
+      "email": "jaydip@gmail.com",
+      "password": "$2b$10$raL4qpAdxvFubFCRQzU96.yeuEqksZNIp0eddw9Vs5aWE1JC2Sl/S",
+      "role": "Admin"
+    },
+    {
+      "id": "5da4",
+      "name": "as",
+      "email": "ashwin@gmail.com",
+      "password": "$2b$10$Mjqw1q/yQeZycJWmMdiXWerL8A2rWOs6qSxeWKDuapKySGalyzyTy",
+      "role": "Supervisor"
+    }
+  ],
+  "roles": [
+    {
+      "name": "Admin",
+      "description": "Full control; can manage users and permissions",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "HR",
+      "description": "Can manage employees but not users"
+    },
+    {
+      "id": "3",
+      "name": "Supervisor",
+      "description": "Can only view and edit limited modules"
+    },
+    {
+      "id": "4",
+      "name": "Manager",
+      "description": "Can manage projects but not permissions"
+    }
+  ],
+  "permissions": [
+    {
+      "id": "1",
+      "roleId": 1,
+      "module": "users",
+      "actions": [
+        "view",
+        "add",
+        "edit",
+        "delete"
+      ]
+    },
+    {
+      "id": "2",
+      "roleId": 1,
+      "module": "employees",
+      "actions": [
+        "view",
+        "add",
+        "edit",
+        "delete"
+      ]
+    },
+    {
+      "id": "3",
+      "roleId": 1,
+      "module": "projects",
+      "actions": [
+        "view",
+        "add",
+        "edit",
+        "delete"
+      ]
+    },
+    {
+      "id": "4",
+      "roleId": 1,
+      "module": "roles",
+      "actions": [
+        "view",
+        "edit"
+      ]
+    },
+    {
+      "id": "5",
+      "roleId": 2,
+      "module": "users",
+      "actions": [
+        "view"
+      ]
+    },
+    {
+      "id": "6",
+      "roleId": 2,
+      "module": "employees",
+      "actions": [
+        "view",
+        "add",
+        "edit",
+        "delete"
+      ]
+    },
+    {
+      "id": "7",
+      "roleId": 2,
+      "module": "projects",
+      "actions": [
+        "view"
+      ]
+    },
+    {
+      "id": "8",
+      "roleId": 2,
+      "module": "roles",
+      "actions": [
+        "view"
+      ]
+    },
+    {
+      "id": "9",
+      "roleId": 3,
+      "module": "users",
+      "actions": []
+    },
+    {
+      "id": "10",
+      "roleId": 3,
+      "module": "employees",
+      "actions": [
+        "view",
+        "edit"
+      ]
+    },
+    {
+      "id": "11",
+      "roleId": 3,
+      "module": "projects",
+      "actions": [
+        "view"
+      ]
+    },
+    {
+      "id": "12",
+      "roleId": 3,
+      "module": "roles",
+      "actions": [
+        "view"
+      ]
+    },
+    {
+      "id": "13",
+      "roleId": 4,
+      "module": "users",
+      "actions": []
+    },
+    {
+      "id": "14",
+      "roleId": 4,
+      "module": "employees",
+      "actions": [
+        "view"
+      ]
+    },
+    {
+      "id": "15",
+      "roleId": 4,
+      "module": "projects",
+      "actions": [
+        "view",
+        "add",
+        "edit",
+        "delete"
+      ]
+    },
+    {
+      "id": "16",
+      "roleId": 4,
+      "module": "roles",
+      "actions": [
+        "view"
+      ]
+    }
+  ],
+  "employees": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "position": "Software Engineer",
+      "department": "Engineering",
+      "email": "john@example.com",
+      "phone": "123-456-7890"
+    },
+    {
+      "name": "Jane Smith",
+      "position": "Product Manager 6",
+      "department": "Product",
+      "email": "jane@example.com",
+      "phone": "123-456-7891",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Bob Johnson",
+      "position": "UX Designer",
+      "department": "Design",
+      "email": "bob@example.com",
+      "phone": "123-456-7892"
+    },
+    {
+      "id": "4a4b",
+      "name": "JD",
+      "position": "Full-Stack Developer",
+      "department": ".NET",
+      "email": "jaydip233@gmail.com",
+      "phone": "7698630446"
+    },
+    {
+      "id": "a77a",
+      "name": "Priyanshu",
+      "position": "MERN Developer",
+      "department": "Development",
+      "email": "priyanshu@gmail.com",
+      "phone": "9978780579"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "name": "Website Redesign",
+      "description": "Redesign the company website",
+      "startDate": "2023-01-01",
+      "endDate": "2023-03-31",
+      "status": "Completed"
+    },
+    {
+      "id": "2",
+      "name": "Mobile App Development",
+      "description": "Develop a mobile app for customers",
+      "startDate": "2023-04-01",
+      "endDate": "2023-08-31",
+      "status": "In Progress"
+    },
+    {
+      "id": "3",
+      "name": "CRM Integration",
+      "description": "Integrate the new CRM system",
+      "startDate": "2023-09-01",
+      "endDate": "2023-12-31",
+      "status": "Planned"
+    }
+  ]
+}
