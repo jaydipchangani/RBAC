@@ -1,39 +1,46 @@
 {
   "users": [
     {
-      "id": "763e",
+      "id": "1",
       "name": "JD",
       "email": "jaydip@gmail.com",
       "password": "$2b$10$y27v1n8Jl4EyVK2Ii0XfGul0H9kOC2K0MHniZLtBqv/Fsmov0QqY2",
       "role": "Admin"
     },
     {
-      "id": "7fbb",
+      "id": "2",
       "name": "Priyanshu",
       "email": "priyanshu@gmail.com",
       "password": "$2b$10$WRAm5EjaFoNGTTTHfFRU.usVV4h1/BP6yQWRob6bmdAUWs9/dugBK",
       "role": "Manager"
     },
     {
-      "id": "91b4",
       "name": "Krupa",
       "email": "krupa@gmail.com",
-      "password": "$2b$10$xI3XIylJPyG5Swy2JhHMFOeRqeJoHmg8s1daycNBCcM8zMbLVWdLy",
-      "role": "HR"
+      "password": "$2b$10$XubRHtlVDfqyiOJVjq83FuP47mfUEtMXMt/LljS1GROqA5Txgy5le",
+      "role": "HR",
+      "id": "3"
     },
     {
-      "id": "8e62",
+      "id": "4",
       "name": "Darshil",
       "email": "darshil@gmail.com",
       "password": "$2b$10$hhswA7vIyeYlkRIbyAi2Fu6YggXK9OmzhwHPIH3mzSfuf7ObqYpF.",
       "role": "Supervisor"
     },
     {
-      "id": "1764",
+      "id": "5",
       "name": "Ashvini",
       "email": "ashvini@gmail.com",
       "password": "$2b$10$sAfidwh00Jnle96zTgeGSeK0Lj9.OvEMrMzd6/dDtxmS.2EFJ3LUa",
       "role": "Manager"
+    },
+    {
+      "id": "d34e",
+      "name": "a",
+      "email": "a@gmail.com",
+      "password": "$2b$10$k11jHS7Va0.acgL/e.3MSO2.2DLaKEK707XGzhk1rxEwePFk9aQzm",
+      "role": "Admin"
     }
   ],
   "roles": [
@@ -48,14 +55,14 @@
       "id": "2"
     },
     {
-      "id": "3",
       "name": "Supervisor",
-      "description": "Can only view and edit limited modules"
+      "description": "Can only view and edit limited modules",
+      "id": "3"
     },
     {
-      "id": "4",
       "name": "Manager",
-      "description": "Can manage projects but not permissions"
+      "description": "Can manage projects but not permissions",
+      "id": "4"
     }
   ],
   "permissions": [
@@ -98,7 +105,9 @@
       "module": "roles",
       "actions": [
         "view",
-        "edit"
+        "add",
+        "edit",
+        "delete"
       ]
     },
     {

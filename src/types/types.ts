@@ -64,3 +64,10 @@ export interface ProtectedRouteProps {
   action: string;
   element: React.ReactNode;
 }
+
+export interface PermissionContextType {
+  permissions: UserPermissions;
+  loading: boolean;
+  hasPermission: (module: string, action: string) => boolean;
+  updatePermissions: () => Promise<void>; // Add updatePermissions function
+}

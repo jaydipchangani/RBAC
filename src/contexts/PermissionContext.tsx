@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { getApi } from '../api/api';
 import { useAuth } from './AuthContext';
 import { Permission, PermissionContextType, UserPermissions } from '../types/types';
@@ -11,42 +11,46 @@ export const PermissionProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [permissions, setPermissions] = useState<UserPermissions>({});
   const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    const fetchPermissions = async () => {
-      if (isAuthenticated && user) {
-        try {
-          setLoading(true);
+  const fetchPermissions = useCallback(async () => {
+    if (isAuthenticated && user) {
+      try {
+        setLoading(true);
 
-          const rolesResponse = await getApi('/roles');
-          const roles = rolesResponse.data;
-          const userRole = roles.find((role: any) => role.name === user.role);
+        const rolesResponse = await getApi('/roles');
+        const roles = rolesResponse.data;
+        const userRole = roles.find((role: any) => role.name === user.role);
+        
+        if (userRole) {
+
+          const permissionsResponse = await getApi('/permissions', { roleId: userRole.id });
+          const rolePermissions = permissionsResponse.data;
+
+          const formattedPermissions: UserPermissions = {};
           
-          if (userRole) {
-
-            const permissionsResponse = await getApi('/permissions', { roleId: userRole.id });
-            const rolePermissions = permissionsResponse.data;
-
-            const formattedPermissions: UserPermissions = {};
-            
-            rolePermissions.forEach((permission: Permission) => {
-              formattedPermissions[permission.module] = permission.actions;
-            });
-            
-            setPermissions(formattedPermissions);
-          }
-        } catch (error) {
-          console.error('Failed to fetch permissions:', error);
-        } finally {
-          setLoading(false);
+          rolePermissions.forEach((permission: Permission) => {
+            formattedPermissions[permission.module] = permission.actions;
+          });
+          
+          setPermissions(formattedPermissions);
         }
-      } else {
-        setPermissions({});
+      } catch (error) {
+        console.error('Failed to fetch permissions:', error);
+      } finally {
         setLoading(false);
       }
-    };
-
-    fetchPermissions();
+    } else {
+      setPermissions({});
+      setLoading(false);
+    }
   }, [isAuthenticated, user]);
+
+  useEffect(() => {
+    fetchPermissions();
+  }, [fetchPermissions]);
+
+  const updatePermissions = async () => {
+    await fetchPermissions();
+  };
 
   const hasPermission = (module: string, action: string): boolean => {
     if (!isAuthenticated || loading) return false;
@@ -60,6 +64,7 @@ export const PermissionProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         permissions,
         loading,
         hasPermission,
+        updatePermissions, // Expose the updatePermissions function
       }}
     >
       {children}

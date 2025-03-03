@@ -74,20 +74,23 @@ const RoleList: React.FC = () => {
     try {
       if (!editingId) return;
       
+      // Update role name and description
       const roleData = {
         name: values.name,
-        description: values.description
+        description: values.description,
       };
-      
+  
       await putApi(`/roles/${editingId}`, roleData);
       
       setRoles(roles.map(role => 
         role.id === editingId ? { ...role, ...roleData } : role
       ));
       
+      // Define modules and actions
       const modules = ['users', 'employees', 'projects', 'roles'];
       const actions = ['view', 'add', 'edit', 'delete'];
       
+      // Update permissions based on checkboxes
       const updatedPermissions = modules.map(module => {
         const permissionId = permissions.find(
           p => p.roleId === editingId && p.module === module
@@ -95,27 +98,27 @@ const RoleList: React.FC = () => {
         
         if (!permissionId) return null;
         
-        const selectedActions = actions.filter(action => 
-          values[`${module}_${action}`]
-        );
-        
+        const selectedActions = actions.filter(action => values[`${module}_${action}`]);
+  
         return {
           id: permissionId,
           roleId: editingId,
           module,
-          actions: selectedActions
+          actions: selectedActions, // Update with selected actions
         };
       }).filter(Boolean) as Permission[];
-      
+  
+      // Send updates to JSON Server
       for (const permission of updatedPermissions) {
         await putApi(`/permissions/${permission.id}`, permission);
       }
-      
+  
+      // Update local state with new permissions
       setPermissions(permissions.map(permission => {
         const updated = updatedPermissions.find(p => p.id === permission.id);
         return updated || permission;
       }));
-      
+  
       message.success('Role and permissions updated successfully');
       setModalVisible(false);
       form.resetFields();
@@ -125,6 +128,7 @@ const RoleList: React.FC = () => {
       message.error('Failed to update role and permissions');
     }
   };
+  
 
   const columns = [
     {
@@ -152,6 +156,7 @@ const RoleList: React.FC = () => {
     },
   ];
 
+  // Render permission details
   const renderPermissionDetails = (roleId: number) => {
     const rolePermissions = permissionsByRole[roleId] || {};
     
