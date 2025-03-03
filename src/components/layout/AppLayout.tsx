@@ -70,32 +70,32 @@ const AppLayout: React.FC = () => {
           mode="inline"
           defaultSelectedKeys={['5']}
           items={[
-            hasPermission('users', 'view') && {
+            hasPermission('users', 'view') ? {
               key: '5',
               icon: <LayoutDashboardIcon size={16} />,
               label: <Link to="/">Dashboard</Link>,
-            },
-            hasPermission('users', 'view') && {
+            } : null,
+            hasPermission('users', 'view') ? {
               key: '1',
               icon: <UserIcon size={16} />,
               label: <Link to="/users">Users</Link>,
-            },
-            hasPermission('employees', 'view') && {
+            } : null,
+            hasPermission('employees', 'view') ? {
               key: '2',
               icon: <Users size={16} />,
               label: <Link to="/employees">Employees</Link>,
-            },
-            hasPermission('projects', 'view') && {
+            } : null,
+            hasPermission('projects', 'view') ? {
               key: '3',
               icon: <Briefcase size={16} />,
               label: <Link to="/projects">Projects</Link>,
-            },
-            hasPermission('roles', 'view') && {
+            } : null,
+            hasPermission('roles', 'view') ? {
               key: '4',
               icon: <Settings size={16} />,
               label: <Link to="/roles">Roles & Permissions</Link>,
-            },
-          ].filter((item) => item)}
+            } : null,
+          ].filter((item) => item !== null)}
         />
       </Sider>
       <Layout>
