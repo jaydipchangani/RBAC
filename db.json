@@ -43,9 +43,9 @@
       "id": "1"
     },
     {
-      "id": "2",
       "name": "HR",
-      "description": "Can manage employees but not users"
+      "description": "Can manage employees but not users",
+      "id": "2"
     },
     {
       "id": "3",
