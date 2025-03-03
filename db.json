@@ -4,7 +4,7 @@
       "id": "763e",
       "name": "JD",
       "email": "jaydip@gmail.com",
-      "password": "$2b$10$raL4qpAdxvFubFCRQzU96.yeuEqksZNIp0eddw9Vs5aWE1JC2Sl/S",
+      "password": "$2b$10$y27v1n8Jl4EyVK2Ii0XfGul0H9kOC2K0MHniZLtBqv/Fsmov0QqY2",
       "role": "Admin"
     },
     {
@@ -249,6 +249,14 @@
       "department": "Nihil mollit volupta",
       "email": "faxyxop@mailinator.com",
       "phone": "7896521452"
+    },
+    {
+      "id": "3ef6",
+      "name": "Hasad Holmes",
+      "position": "Excepteur qui numqua",
+      "department": "Tenetur inventore do",
+      "email": "byvidujal@mailinator.com",
+      "phone": "7896584520"
     }
   ],
   "projects": [

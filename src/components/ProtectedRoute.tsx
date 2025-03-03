@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { usePermission } from '../contexts/PermissionContext';
 import { ProtectedRouteProps } from '../types/types';
 
-// Component for routes that require authentication
+
 export const AuthRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
 
@@ -19,7 +19,6 @@ export const AuthRoute: React.FC<{ children: React.ReactNode }> = ({ children })
   return <>{children}</>;
 };
 
-// Component for routes that require specific permissions
 export const PermissionRoute: React.FC<ProtectedRouteProps> = ({ 
   module, 
   action, 

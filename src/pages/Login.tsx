@@ -24,12 +24,10 @@ const Login: React.FC = () => {
     }
   };
 
-  // Clear any previous errors when component mounts
   React.useEffect(() => {
     clearError();
   }, []);
 
-  // Show error message if there is one
   React.useEffect(() => {
     if (error) {
       message.error(error);
@@ -47,7 +45,6 @@ const Login: React.FC = () => {
         <Form
           name="login"
           layout="vertical"
-          initialValues={{ remember: true }}
           onFinish={onFinish}
           autoComplete="off"
         >

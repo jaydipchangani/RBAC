@@ -20,7 +20,6 @@ const UserList: React.FC = () => {
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
   const { hasPermission } = usePermission();
 
-  // Fetch users and roles
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -43,11 +42,10 @@ const UserList: React.FC = () => {
     fetchData();
   }, []);
 
-  // Handle form submission
   const handleSubmit = async (values: any) => {
     try {
       if (editingId) {
-        // Update existing user
+
         if (values.password) {
           values.password = await bcrypt.hash(values.password, 10);
         }
@@ -57,7 +55,7 @@ const UserList: React.FC = () => {
         ));
         message.success('User updated successfully');
       } else {
-        // Create new user
+
         values.password = await bcrypt.hash(values.password, 10);
         const response = await postApi('/users', values);
         setUsers([...users, response.data]);
@@ -72,7 +70,6 @@ const UserList: React.FC = () => {
     }
   };
 
-  // Handle user deletion
   const handleDelete = async (id: number) => {
     Modal.confirm({
       title: 'Are you sure you want to delete this user?',
@@ -94,7 +91,6 @@ const UserList: React.FC = () => {
     });
   };
 
-  // Handle edit button click
   const handleEdit = (record: User) => {
     setEditingId(record.id);
     form.setFieldsValue({
@@ -106,14 +102,12 @@ const UserList: React.FC = () => {
     setModalVisible(true);
   };
 
-  // Handle add button click
   const handleAdd = () => {
     setEditingId(null);
     form.resetFields();
     setModalVisible(true);
   };
 
-  // Handle search
   const handleSearch = (value: string) => {
     setSearchText(value);
     const filtered = users.filter(user =>
@@ -124,7 +118,6 @@ const UserList: React.FC = () => {
     setFilteredUsers(filtered);
   };
 
-  // Table columns
   const columns = [
     {
       title: 'Name',

@@ -19,17 +19,17 @@ const apiConfig = (flag = false) => {
 
 let navigateRef: any = null;
 
-export const setNavigate = (navigateInstance: any) => {
+export const setNavigate = (navigateInstance: any) => {    //store navigate instance
   navigateRef = navigateInstance;
 };
 
 axios.interceptors.response.use(
-  (response) => response,
+  (response) => response,  // successful thai to return response 
   (error) => {
     if (
       error.response &&
       error.response.status === 401 &&
-      error.response.data?.error?.name === 'TokenExpiredError' &&
+      error.response.data?.error?.name === 'TokenExpiredError' &&   // ?. error chaining operator
       localStorage.getItem('accessToken')
     ) {
       if (navigateRef) {

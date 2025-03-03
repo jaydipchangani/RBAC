@@ -22,7 +22,7 @@ const AppLayout: React.FC = () => {
   const { hasPermission } = usePermission();
   const navigate = useNavigate();
   
-  const {
+  const {                                                     //object destructuring 
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 

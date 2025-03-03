@@ -15,7 +15,6 @@ const EmployeeList: React.FC = () => {
   const [searchText, setSearchText] = useState('');
   const { hasPermission } = usePermission();
 
-  // Fetch employees
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -33,18 +32,17 @@ const EmployeeList: React.FC = () => {
     fetchData();
   }, []);
 
-  // Handle form submission
   const handleSubmit = async (values: any) => {
     try {
       if (editingId) {
-        // Update existing employee
+
         await putApi(`/employees/${editingId}`, values);
         setEmployees(employees.map(employee => 
           employee.id === editingId ? { ...employee, ...values } : employee
         ));
         message.success('Employee updated successfully');
       } else {
-        // Create new employee
+
         const response = await postApi('/employees', values);
         setEmployees([...employees, response.data]);
         message.success('Employee created successfully');
@@ -58,7 +56,6 @@ const EmployeeList: React.FC = () => {
     }
   };
 
-  // Handle employee deletion
   const handleDelete = async (id: number) => {
     Modal.confirm({
       title: 'Are you sure you want to delete this employee?',
@@ -79,7 +76,6 @@ const EmployeeList: React.FC = () => {
     });
   };
 
-  // Handle edit button click
   const handleEdit = (record: Employee) => {
     setEditingId(record.id);
     form.setFieldsValue({
@@ -92,14 +88,12 @@ const EmployeeList: React.FC = () => {
     setModalVisible(true);
   };
 
-  // Handle add button click
   const handleAdd = () => {
     setEditingId(null);
     form.resetFields();
     setModalVisible(true);
   };
 
-  // Filter employees based on search text
   const filteredEmployees = employees.filter(employee =>
     employee.name.toLowerCase().includes(searchText.toLowerCase()) ||
     employee.position.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -108,7 +102,6 @@ const EmployeeList: React.FC = () => {
     employee.phone.includes(searchText)
   );
 
-  // Table columns
   const columns = [
     {
       title: 'Name',

@@ -6,7 +6,7 @@ interface PermissionButtonProps {
   module: string;
   action: string;
   children: React.ReactNode;
-  [key: string]: any; // For other Button props
+  [key: string]: any; 
 }
 
 const PermissionButton: React.FC<PermissionButtonProps> = ({

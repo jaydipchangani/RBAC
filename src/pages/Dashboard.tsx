@@ -8,7 +8,6 @@ const Dashboard: React.FC = () => {
   const { user } = useAuth();
   const { hasPermission } = usePermission();
 
-  // State for storing counts
   const [counts, setCounts] = useState({
     users: 0,
     employees: 0,
@@ -18,7 +17,6 @@ const Dashboard: React.FC = () => {
 
   const [loading, setLoading] = useState(true);
 
-  // Fetch data from JSON Server
   useEffect(() => {
     const fetchCounts = async () => {
       try {

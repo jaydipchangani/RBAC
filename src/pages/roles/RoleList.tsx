@@ -17,7 +17,6 @@ const RoleList: React.FC = () => {
   const [editingId, setEditingId] = useState<number | null>(null);
   const { hasPermission } = usePermission();
 
-  // Fetch roles and permissions
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -39,7 +38,6 @@ const RoleList: React.FC = () => {
     fetchData();
   }, []);
 
-  // Group permissions by role
   const permissionsByRole = permissions.reduce((acc: any, permission) => {
     if (!acc[permission.roleId]) {
       acc[permission.roleId] = {};
@@ -53,18 +51,15 @@ const RoleList: React.FC = () => {
     return acc;
   }, {});
 
-  // Handle edit button click
   const handleEdit = (role: Role) => {
     setEditingId(role.id);
     
-    // Prepare form values
     const rolePermissions = permissionsByRole[role.id] || {};
     const formValues: any = {
       name: role.name,
       description: role.description,
     };
     
-    // Add permission values
     Object.keys(rolePermissions).forEach(module => {
       rolePermissions[module].forEach((action: string) => {
         formValues[`${module}_${action}`] = true;
@@ -75,26 +70,21 @@ const RoleList: React.FC = () => {
     setModalVisible(true);
   };
 
-  // Handle form submission
   const handleSubmit = async (values: any) => {
     try {
       if (!editingId) return;
       
-      // Extract role data
       const roleData = {
         name: values.name,
         description: values.description
       };
       
-      // Update role
       await putApi(`/roles/${editingId}`, roleData);
       
-      // Update roles state
       setRoles(roles.map(role => 
         role.id === editingId ? { ...role, ...roleData } : role
       ));
       
-      // Extract and format permissions
       const modules = ['users', 'employees', 'projects', 'roles'];
       const actions = ['view', 'add', 'edit', 'delete'];
       
@@ -117,12 +107,10 @@ const RoleList: React.FC = () => {
         };
       }).filter(Boolean) as Permission[];
       
-      // Update permissions
       for (const permission of updatedPermissions) {
         await putApi(`/permissions/${permission.id}`, permission);
       }
       
-      // Update permissions state
       setPermissions(permissions.map(permission => {
         const updated = updatedPermissions.find(p => p.id === permission.id);
         return updated || permission;
@@ -138,7 +126,6 @@ const RoleList: React.FC = () => {
     }
   };
 
-  // Table columns
   const columns = [
     {
       title: 'Name',
@@ -165,7 +152,6 @@ const RoleList: React.FC = () => {
     },
   ];
 
-  // Render permission details
   const renderPermissionDetails = (roleId: number) => {
     const rolePermissions = permissionsByRole[roleId] || {};
     

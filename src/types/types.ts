@@ -1,4 +1,4 @@
-// User related types
+
 export interface User {
   id: number;
   name: string;
@@ -20,7 +20,6 @@ export interface Permission {
   actions: string[];
 }
 
-// Employee related types
 export interface Employee {
   id: number;
   name: string;
@@ -30,7 +29,6 @@ export interface Employee {
   phone: string;
 }
 
-// Project related types
 export interface Project {
   id: number;
   name: string;
@@ -40,7 +38,6 @@ export interface Project {
   status: string;
 }
 
-// Auth related types
 export interface AuthState {
   isAuthenticated: boolean;
   user: User | null;
@@ -53,7 +50,6 @@ export interface LoginCredentials {
   password: string;
 }
 
-// Permission context types
 export interface UserPermissions {
   [module: string]: string[];
 }
@@ -63,8 +59,6 @@ export interface PermissionContextType {
   loading: boolean;
   hasPermission: (module: string, action: string) => boolean;
 }
-
-// Route types
 export interface ProtectedRouteProps {
   module: string;
   action: string;

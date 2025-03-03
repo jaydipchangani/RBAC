@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { AuthState, User, LoginCredentials } from '../types/types';
-import { getApi, postApi } from '../api/api';
+import { getApi } from '../api/api';
 import { generateToken, setToken, removeToken, isAuthenticated } from '../utils/auth';
 import bcrypt from 'bcryptjs';
 
-// Initial state
+
 const initialState: AuthState = {
   isAuthenticated: isAuthenticated(),
   user: null,
@@ -12,7 +12,6 @@ const initialState: AuthState = {
   error: null,
 };
 
-// Action types
 type AuthAction =
   | { type: 'LOGIN_REQUEST' }
   | { type: 'LOGIN_SUCCESS'; payload: User }
@@ -20,7 +19,7 @@ type AuthAction =
   | { type: 'LOGOUT' }
   | { type: 'CLEAR_ERROR' };
 
-// Reducer
+
 const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
     case 'LOGIN_REQUEST':
@@ -63,7 +62,6 @@ const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   }
 };
 
-// Context
 interface AuthContextType extends AuthState {
   login: (credentials: LoginCredentials) => Promise<void>;
   logout: () => void;
@@ -72,18 +70,15 @@ interface AuthContextType extends AuthState {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Provider component
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // Check if user is already logged in
   useEffect(() => {
     const checkAuth = async () => {
       if (isAuthenticated()) {
         try {
           dispatch({ type: 'LOGIN_REQUEST' });
-          // In a real app, you would verify the token and get user data
-          // For this demo, we'll just get the user from localStorage if it exists
+         
           const userId = localStorage.getItem('userId');
           if (userId) {
             const response = await getApi(`/users/${userId}`);
@@ -102,20 +97,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     checkAuth();
   }, []);
 
-  // Login function
   const login = async (credentials: LoginCredentials) => {
     try {
       dispatch({ type: 'LOGIN_REQUEST' });
       
-      // In a real app, you would send credentials to a backend
-      // For this demo, we'll just check against our json-server
       const response = await getApi('/users', { email: credentials.email });
       
       const users = response.data;
       const user = users.find((u: User) => u.email === credentials.email);
       
       if (user && await bcrypt.compare(credentials.password, user.password)) {
-        // Generate and set token
         const token = await generateToken({ 
           id: user.id, 
           email: user.email,
@@ -137,14 +128,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  // Logout function
   const logout = () => {
     removeToken();
     localStorage.removeItem('userId');
     dispatch({ type: 'LOGOUT' });
   };
 
-  // Clear error
   const clearError = () => {
     dispatch({ type: 'CLEAR_ERROR' });
   };
@@ -163,9 +152,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   );
 };
 
-// Custom hook to use auth context
 export const useAuth = () => {
-  const context = useContext(AuthContext);
+  const context = useContext(AuthContext);  
   if (context === undefined) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
