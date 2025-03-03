@@ -1,34 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Admin User",
-      "email": "admin@example.com",
-      "password": "admin123",
-      "role": "Admin"
-    },
-    {
-      "id": "2",
-      "name": "HR User",
-      "email": "hr@example.com",
-      "password": "hr123",
-      "role": "HR"
-    },
-    {
-      "id": "3",
-      "name": "Supervisor User",
-      "email": "supervisor@example.com",
-      "password": "supervisor123",
-      "role": "Supervisor"
-    },
-    {
-      "name": "Manager User 4",
-      "email": "manager@example.com",
-      "password": "manager123",
-      "role": "Manager",
-      "id": "4"
-    },
-    {
       "id": "763e",
       "name": "JD",
       "email": "jaydip@gmail.com",
@@ -36,11 +8,32 @@
       "role": "Admin"
     },
     {
-      "id": "5da4",
-      "name": "as",
-      "email": "ashwin@gmail.com",
-      "password": "$2b$10$Mjqw1q/yQeZycJWmMdiXWerL8A2rWOs6qSxeWKDuapKySGalyzyTy",
+      "id": "7fbb",
+      "name": "Priyanshu",
+      "email": "priyanshu@gmail.com",
+      "password": "$2b$10$WRAm5EjaFoNGTTTHfFRU.usVV4h1/BP6yQWRob6bmdAUWs9/dugBK",
+      "role": "Manager"
+    },
+    {
+      "id": "91b4",
+      "name": "Krupa",
+      "email": "krupa@gmail.com",
+      "password": "$2b$10$xI3XIylJPyG5Swy2JhHMFOeRqeJoHmg8s1daycNBCcM8zMbLVWdLy",
+      "role": "HR"
+    },
+    {
+      "id": "8e62",
+      "name": "Darshil",
+      "email": "darshil@gmail.com",
+      "password": "$2b$10$hhswA7vIyeYlkRIbyAi2Fu6YggXK9OmzhwHPIH3mzSfuf7ObqYpF.",
       "role": "Supervisor"
+    },
+    {
+      "id": "1764",
+      "name": "Ashvini",
+      "email": "ashvini@gmail.com",
+      "password": "$2b$10$sAfidwh00Jnle96zTgeGSeK0Lj9.OvEMrMzd6/dDtxmS.2EFJ3LUa",
+      "role": "Manager"
     }
   ],
   "roles": [
@@ -234,20 +227,28 @@
       "phone": "123-456-7892"
     },
     {
-      "id": "4a4b",
-      "name": "JD",
-      "position": "Full-Stack Developer",
-      "department": ".NET",
-      "email": "jaydip233@gmail.com",
-      "phone": "7698630446"
+      "name": "Deep",
+      "position": "Full Stack Developer",
+      "department": "NET",
+      "email": "deep@gmail.com",
+      "phone": "7698130446",
+      "id": "4a4b"
     },
     {
-      "id": "a77a",
-      "name": "Priyanshu",
+      "name": "shu",
       "position": "MERN Developer",
       "department": "Development",
       "email": "priyanshu@gmail.com",
-      "phone": "9978780579"
+      "phone": "9978780579",
+      "id": "a77a"
+    },
+    {
+      "id": "b5fc",
+      "name": "Maggy Bradley",
+      "position": "SDE",
+      "department": "Nihil mollit volupta",
+      "email": "faxyxop@mailinator.com",
+      "phone": "7896521452"
     }
   ],
   "projects": [
@@ -274,6 +275,22 @@
       "startDate": "2023-09-01",
       "endDate": "2023-12-31",
       "status": "Planned"
+    },
+    {
+      "id": "0801",
+      "name": "MERN App",
+      "description": "Minus reprehenderit ",
+      "status": "In Progress",
+      "startDate": "2025-02-01",
+      "endDate": "2025-03-31"
+    },
+    {
+      "id": "c5dc",
+      "name": "Zachery Conley",
+      "description": "Similique aliqua No",
+      "status": "Completed",
+      "startDate": "2025-01-01",
+      "endDate": "2025-02-28"
     }
   ]
 }

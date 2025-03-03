@@ -27,14 +27,14 @@ const Login: React.FC = () => {
   // Clear any previous errors when component mounts
   React.useEffect(() => {
     clearError();
-  }, [clearError]);
+  }, []);
 
   // Show error message if there is one
   React.useEffect(() => {
     if (error) {
       message.error(error);
     }
-  }, [error]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">

@@ -62,7 +62,7 @@ const AppLayout: React.FC = () => {
       >
         <div className="p-4 h-16 flex items-center justify-center">
           <h1 className="text-white text-xl font-bold">
-            {collapsed ? 'RBAC' : 'RBAC Admin'}
+            {collapsed ? 'OM' : 'OM'}
           </h1>
         </div>
         <Menu
