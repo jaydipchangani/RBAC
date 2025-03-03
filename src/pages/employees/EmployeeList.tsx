@@ -187,6 +187,7 @@ const EmployeeList: React.FC = () => {
         dataSource={filteredEmployees} 
         rowKey="id" 
         loading={loading}
+        
       />
 
       <Modal
