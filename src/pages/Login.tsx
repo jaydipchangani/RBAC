@@ -40,7 +40,7 @@ const Login: React.FC = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Title level={2}>RBAC Admin</Title>
+          <Title level={2}>OM Login</Title>
           <p className="text-gray-500">Sign in to your account</p>
         </div>
 
@@ -85,7 +85,7 @@ const Login: React.FC = () => {
           </Form.Item>
         </Form>
 
-        <div className="mt-4 text-center">
+        {/* <div className="mt-4 text-center">
           <p className="text-sm text-gray-500">
             Demo Accounts:
           </p>
@@ -107,7 +107,7 @@ const Login: React.FC = () => {
               <p>Password: manager123</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </Card>
     </div>
   );
