@@ -16,6 +16,7 @@ const ProjectList: React.FC = () => {
   const [form] = Form.useForm();
   const [editingId, setEditingId] = useState<number | null>(null);
   const { hasPermission } = usePermission();
+  const [searchProject, setSearchProject] = useState('');
 
   // Fetch projects
   useEffect(() => {
@@ -176,6 +177,13 @@ const ProjectList: React.FC = () => {
           Add Project
         </PermissionButton>
       </div>
+
+      <Input
+              placeholder="Search Projects"
+              value={searchProject}
+              onChange={(e1) => setSearchProject(e1.target.value)}
+              className="mb-4"
+            />
 
       <Table 
         columns={columns} 

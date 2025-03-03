@@ -12,6 +12,7 @@ const EmployeeList: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [form] = Form.useForm();
   const [editingId, setEditingId] = useState<number | null>(null);
+  const [searchText, setSearchText] = useState('');
   const { hasPermission } = usePermission();
 
   // Fetch employees
@@ -98,6 +99,15 @@ const EmployeeList: React.FC = () => {
     setModalVisible(true);
   };
 
+  // Filter employees based on search text
+  const filteredEmployees = employees.filter(employee =>
+    employee.name.toLowerCase().includes(searchText.toLowerCase()) ||
+    employee.position.toLowerCase().includes(searchText.toLowerCase()) ||
+    employee.department.toLowerCase().includes(searchText.toLowerCase()) ||
+    employee.email.toLowerCase().includes(searchText.toLowerCase()) ||
+    employee.phone.includes(searchText)
+  );
+
   // Table columns
   const columns = [
     {
@@ -165,9 +175,16 @@ const EmployeeList: React.FC = () => {
         </PermissionButton>
       </div>
 
+      <Input
+        placeholder="Search employees"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        className="mb-4"
+      />  
+
       <Table 
         columns={columns} 
-        dataSource={employees} 
+        dataSource={filteredEmployees} 
         rowKey="id" 
         loading={loading}
       />
