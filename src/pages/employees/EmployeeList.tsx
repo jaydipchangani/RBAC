@@ -56,6 +56,7 @@ const EmployeeList: React.FC = () => {
     }
   };
 
+
   const handleDelete = async (id: number) => {
     Modal.confirm({
       title: 'Are you sure you want to delete this employee?',

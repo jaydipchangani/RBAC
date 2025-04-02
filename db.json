@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "id": "1",
       "name": "JD",
       "email": "jaydip@gmail.com",
-      "password": "$2b$10$y27v1n8Jl4EyVK2Ii0XfGul0H9kOC2K0MHniZLtBqv/Fsmov0QqY2",
-      "role": "Admin"
+      "password": "$2b$10$G3P1qcYDOaKZHqdv6u.FzeXDIXW6BqsYzkEZSof/RXdCOpNCyMHxK",
+      "role": "Admin",
+      "id": "1"
     },
     {
       "id": "2",
@@ -36,11 +36,25 @@
       "role": "Manager"
     },
     {
-      "id": "d34e",
+      "id": "f3cd",
       "name": "a",
       "email": "a@gmail.com",
-      "password": "$2b$10$k11jHS7Va0.acgL/e.3MSO2.2DLaKEK707XGzhk1rxEwePFk9aQzm",
+      "password": "$2b$10$.IGKU7801vwBRdjBN9onxOCehpTiIlodhtAjpIeEVXiRC2BR8EFoK",
+      "role": "HR"
+    },
+    {
+      "id": "74e0",
+      "name": "b",
+      "email": "b@gmail.com",
+      "password": "$2b$10$sBDTcvyeXIyOhz5wzpkWiOMToaML6sQ9L3BqriwM1z7GYuOubeINq",
       "role": "Admin"
+    },
+    {
+      "id": "7804",
+      "name": "c",
+      "email": "c@gmail.com",
+      "password": "$2b$10$/s6Lp/Jo.pmcHEZTkb.LJeTIHI2xEINPc9GsyW2rxS8PeKc1DX8PC",
+      "role": "HR"
     }
   ],
   "roles": [

@@ -82,29 +82,6 @@ const Login: React.FC = () => {
           </Form.Item>
         </Form>
 
-        {/* <div className="mt-4 text-center">
-          <p className="text-sm text-gray-500">
-            Demo Accounts:
-          </p>
-          <div className="grid grid-cols-2 gap-2 mt-2 text-xs text-gray-500">
-            <div>
-              <p><strong>Admin:</strong> admin@example.com</p>
-              <p>Password: admin123</p>
-            </div>
-            <div>
-              <p><strong>HR:</strong> hr@example.com</p>
-              <p>Password: hr123</p>
-            </div>
-            <div>
-              <p><strong>Supervisor:</strong> supervisor@example.com</p>
-              <p>Password: supervisor123</p>
-            </div>
-            <div>
-              <p><strong>Manager:</strong> manager@example.com</p>
-              <p>Password: manager123</p>
-            </div>
-          </div>
-        </div> */}
       </Card>
     </div>
   );
